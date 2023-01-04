@@ -6,6 +6,7 @@ var nodemailer = require('nodemailer')
 /* GET home page. */
 router.post('/', async(req, res) =>{
   const {name,email,sub,text} = req.body;
+  console.log(name,email,sub,text)
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {

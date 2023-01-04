@@ -13,6 +13,7 @@ function App() {
    
     e.preventDefault()
     try{
+      
         await  axios.post('/',{email,name,sub,text})
         
         window.location.href ="/"
@@ -26,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <h1>Mail by nodemailer</h1>
-      <form >
+      <form  onSubmit={handleSubmit}>
       Name:  <input type="text" value={name} onChange={(e) =>{setname(e.target.value)}}/><br/>
       Email:  <input type="email" value={email} onChange={(e) =>{setemail(e.target.value)}} /><br/>
       SUb:  <input type="text" value={sub} onChange={(e) =>{setsub(e.target.value)}}/><br/>
