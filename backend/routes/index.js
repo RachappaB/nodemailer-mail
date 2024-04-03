@@ -19,7 +19,17 @@ router.post('/', async(req, res) =>{
     from: process.env.Email, 
     to:email,
     subject: sub,
-    text: text
+    text: text,
+    html: `<img src="cid:unique_image_id@nodemailer.com" style="display: none;"  />`,
+  attachments: [{
+    filename: 'image.png',
+    path: 'http://localhost:3001/users/photo',
+    cid: 'unique_image_id@nodemailer.com' 
+  }],
+
+
+
+
   };
   await transporter.sendMail(mailOptions, function(error, info){
     if (error) {
